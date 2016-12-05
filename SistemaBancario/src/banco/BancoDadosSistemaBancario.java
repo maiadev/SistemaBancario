@@ -1,20 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package banco;
 
-import java.util.ArrayList;
-import java.util.List;
+    import banco.BancoDadosSistemaBancario;
+    import views.MenuInicioView;
 
-/**
- *
- * @author 1620928
- */
     public class BancoDadosSistemaBancario {
     
-    private static List<PessoaFisica> tabelaPessoaFisica;
+        public static void main(String[] args) {
+            BancoDadosSistemaBancario.inicializarBancoCliente();
+            BancoDadosSistemaBancario.
+        
+                    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*private static List<PessoaFisica> tabelaPessoaFisica;
 
     public static List<PessoaFisica> getTabelaPessoaFisica() {
         return tabelaPessoaFisica;
@@ -22,6 +52,6 @@ import java.util.List;
     
     public static void inicializarBanco(){
         tabelaPessoaFisica = new ArrayList<PessoaFisica>();
-    }
-    
-}
+        }
+     */
+
