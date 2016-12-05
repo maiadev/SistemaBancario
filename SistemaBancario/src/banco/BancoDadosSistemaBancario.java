@@ -8,7 +8,7 @@ package banco;
     
         public static void main(String[] args) {
             BancoDadosSistemaBancario.inicializarBancoCliente();
-            BancoDadosSistemaBancario.
+            BancoDadosSistemaBancario.inicializarBanco
         
                     
         
