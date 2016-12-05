@@ -1,27 +1,33 @@
-
 package banco;
 
-    import banco.BancoDadosSistemaBancario;
-    import views.MenuInicioView;
-
-    public class BancoDadosSistemaBancario {
+import java.util.ArrayList;
+import java.util.List;
+import models.Cliente;
+import models.Administrador;
+import models.Agencia;        
+        
+        
+public class BancoDadosSistemaBancario {
     
-        public static void main(String[] args) {
-            BancoDadosSistemaBancario.inicializarBancoCliente();
-            BancoDadosSistemaBancario.inicializarBanco
+    private static List<Cliente> tabelaCliente;
+    private static List<Administrador> tabelaLanche;
+    private static List<Venda> tabelaVenda;
+    
+    public static List<Cliente> getTabelaCliente() {
+        return tabelaCliente;
+    }
+
+    public static List<Agencia> getTabelaAgencia() {
+        return tabelaAgencia;
+    }
+    
+    public static void inicializarBancoCliente() {
+        tabelaCliente = new ArrayList<Cliente>();    
+    }
         
-                    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    public static void inicializarBancoAgencia() {
+        tabelaCliente = new ArrayList<Agencia>();
+    }
         
         
         
