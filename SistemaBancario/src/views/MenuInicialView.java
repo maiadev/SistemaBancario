@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author 1620928
  */
-public class ViewMenu {
+public class MenuInicialView {
 
     public class MenuInicioView {
 
@@ -31,12 +31,16 @@ public class ViewMenu {
                 System.out.println("3 - Depósito;");
                 System.out.println("4 - Saque;");
                 System.out.println("5 - Sair;");
+                System.out.print("Informe a opção desejada: ");
             }else{
                 if(op == 2){
                     System.out.println("1 - Cadastrar Cliente;");
                     System.out.println("2 - Alterar Cliente;");
                     System.out.println("3 - Excluir Cliente;");
                     System.out.println("4 - Exibir Clientes;");
+                    System.out.print("Informe a opção desejada: ");
+                }else{
+                    System.out.println("Opção digitada é inválida");
                 }
             }
 
