@@ -1,7 +1,7 @@
 
 package models;
 
-public class PessoaFisica {
+public class PessoaFisica extends Conta{
 
     private String Nome;
     private int Numero;
