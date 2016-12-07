@@ -2,62 +2,33 @@ package banco;
 
 import java.util.ArrayList;
 import java.util.List;
-import models.Cliente;
+import models.Usuario;
 import models.Administrador;
-import models.Agencia;        
+import models.Conta;        
         
         
 public class BancoDadosSistemaBancario {
     
-    private static List<Cliente> tabelaCliente;
-    private static List<Administrador> tabelaLanche;
-    private static List<Venda> tabelaVenda;
+    private static List<Usuario> tabelaUsuario;
+    private static List<Saldo> tabelaSaldo;
+    private static List<Extrato> tabelaExtrato;
+    private static List<Conta> tabeltaConta;
     
-    public static List<Cliente> getTabelaCliente() {
-        return tabelaCliente;
+    
+    public static List<Usuario> getTabelaCliente() {
+        return tabelaUsuario;
     }
 
-    public static List<Agencia> getTabelaAgencia() {
-        return tabelaAgencia;
+    public static List<Conta> getTabelaConta() {
+        return tabelaConta;
     }
     
-    public static void inicializarBancoCliente() {
-        tabelaCliente = new ArrayList<Cliente>();    
+    public static void inicializarBancoUsuario() {
+        tabelaUsuario = new ArrayList<Usuario>();    
     }
         
-    public static void inicializarBancoAgencia() {
-        tabelaCliente = new ArrayList<Agencia>();
-    }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*private static List<PessoaFisica> tabelaPessoaFisica;
-
-    public static List<PessoaFisica> getTabelaPessoaFisica() {
-        return tabelaPessoaFisica;
+    public static void inicializarBancoConta() {
+        tabelaConta = new ArrayList<Conta>();
     }
     
-    public static void inicializarBanco(){
-        tabelaPessoaFisica = new ArrayList<PessoaFisica>();
-        }
-     */
-
+}
