@@ -61,4 +61,13 @@ private void exibirSaldo() {
         
         ClientesController.adicionarCliente(conta, PessoaFisica);
     }
+
+private void exibirExtrato(){
+    
+    System.out.println("Seu extrato:");
+    int conta = scan.nextInt();
+    scan.nextLine();
+    
+    ClientesController.adicionarCliente(conta, PessoaJuridica);
+}
 }
