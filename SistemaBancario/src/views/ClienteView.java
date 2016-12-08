@@ -9,20 +9,25 @@ import java.util.Scanner;
 
 /**
  *
- * @author Fernando
+ * @author Fernando e Aron
  */
 public class ClienteView {
 
     Scanner scan = new Scanner(System.in);
+    private int op;
 
     public int Menu() {
 
-        System.out.println("1 - Saldo;");
-        System.out.println("2 - Extrato;");
-        System.out.println("3 - Depósito;");
-        System.out.println("4 - Saque;");
-        System.out.println("5 - Sair;");
+        System.out.println(" ______________________________ ");
+        System.out.println("|         Fernaron Bank        |");
+        System.out.println("|                              |");
+        System.out.println("|          1 - Saldo           |");
+        System.out.println("|         2 - Extrato          |");
+        System.out.println("|      3 - Exibir Clientes     |");
+        System.out.println("|          4 - Sair            |");
+        System.out.println("|______________________________|");
         System.out.print("Informe a opção desejada: ");
+        return 0;
 
     }
 
@@ -31,7 +36,7 @@ public class ClienteView {
         do {
             opcao = Menu();
 
-            switch (op) {
+            switch (op){
                 case 1:
                     exibirSaldo();
                     break;
@@ -48,4 +53,12 @@ public class ClienteView {
         } while (opcao != 5);
     }
 
+private void exibirSaldo() {
+
+        System.out.print("Seu saldo é de:");
+        int conta = scan.nextInt();
+        scan.nextLine();
+        
+        ClientesController.adicionarCliente(conta, PessoaFisica);
+    }
 }
