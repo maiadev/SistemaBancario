@@ -106,5 +106,19 @@ public class AdmView {
             System.out.println("Cliente não encontrado!!");
         }
     }
+    
+    private void exibirClientes() {
+
+        System.out.println("********************************");
+        
+        for (Cliente a : BancoDadosSistemaBancario.getTabelaCliente()) {
+
+            System.out.println("Codigo cliente: " + a.getCodigo());
+            System.out.println("Nome cliente: " + a.getNome());
+            System.out.println("Cpf cliente: " + a.getCpf());
+           
+        }
+        System.out.println("********************************");
+    }
 
 }
