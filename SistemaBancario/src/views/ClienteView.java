@@ -6,6 +6,9 @@
 package views;
 
 import java.util.Scanner;
+import banco.BancoDadosSistemaBancario;
+import controllers.ContasController;
+import models.Conta;
 
 /**
  *
@@ -23,8 +26,9 @@ public class ClienteView {
         System.out.println("|                              |");
         System.out.println("|          1 - Saldo           |");
         System.out.println("|         2 - Extrato          |");
-        System.out.println("|      3 - Exibir Clientes     |");
-        System.out.println("|          4 - Sair            |");
+        System.out.println("|        3 - Depositar         |");
+        System.out.println("|          4 -Sacar            |");
+        System.out.println("|          6 - Sair            |");
         System.out.println("|______________________________|");
         System.out.print("Informe a opção desejada: ");
         return 0;
@@ -55,11 +59,11 @@ public class ClienteView {
 
 private void exibirSaldo() {
 
-        System.out.print("Seu saldo é de:");
+        System.out.print("Digite sua conta:");
         int conta = scan.nextInt();
         scan.nextLine();
         
-        ClientesController.adicionarCliente(conta, PessoaFisica);
+        ContasController.adicionarCliente(conta, saldo);
     }
 
 private void exibirExtrato(){
@@ -68,6 +72,40 @@ private void exibirExtrato(){
     int conta = scan.nextInt();
     scan.nextLine();
     
-    ClientesController.adicionarCliente(conta, PessoaJuridica);
+    ContasController.adicionarCliente(conta, extrato);
 }
+
+private void depositar(){
+    
+    System.out.println("Informe a conta para depósito: ");
+    int numero = scan.nextInt();
+    scan.nextLine();
+    
+    System.out.println("Informe o valor do depósito:");
+    float valor = scan.nextFloat();
+    
+    
+    ContasController.depositar(int numero, float valor);
+    
+}
+
+private void sacar(){
+    
+    System.out.println("Digite o valor a ser sacado: ");
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

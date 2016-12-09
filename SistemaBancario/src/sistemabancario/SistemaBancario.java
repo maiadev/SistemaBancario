@@ -1,18 +1,15 @@
 
-package banco;
+package SistemaBancario;
 
     import banco.BancoDadosSistemaBancario;
-    import views.MenuInicioView;
+    import views.MenuInicialView;
 
-    public class BancoDadosSistemaBancario {
+    public class SistemaBancario{
     
         public static void main(String[] args) {
-            BancoDadosSistemaBancario.inicializarBancoCliente();
-            BancoDadosSistemaBancario.inicializarBanco
-            BancoDadosSistemaBancario.inicializarBanco
-            BancoDadosSistemaBancario.inicializarBanco        
-        
-            MenuInicioView menu = new MenuInicioView();
+            BancoDadosSistemaBancario.inicializarBancoConta();
+            
+            MenuInicialView menu = new MenuInicialView();
             menu.exibirMenu();
             
         }

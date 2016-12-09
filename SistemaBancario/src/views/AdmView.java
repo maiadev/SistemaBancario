@@ -6,10 +6,14 @@
 package views;
 
 import java.util.Scanner;
+import banco.BancoDadosSistemaBancario;
+import controllers.ContasController;
+import models.Conta;
+
 
 /**
  *
- * @author Fernando
+ * @author Fernando e Aron
  */
 public class AdmView {
 
@@ -61,29 +65,33 @@ public class AdmView {
         int conta = scan.nextInt();
         scan.nextLine();
 
+        System.out.print("Digite o numero da conta: ");
+        int numero = scan.nextInt();
+        scan.nextLine();
+
         System.out.print("Digite o nome do cliente: ");
         String nome = scan.nextLine();
+        
+        System.out.println("DIgite o saldo da conta: ");
+        float saldo = scan.nextFloat();
 
-        System.out.print("Digite o cpf do cliente: ");
-        String cpf = scan.nextLine();
-
-        ClientesController.adicionarCliente(cod, nome, cpf);
+        ContasController.adicionarConta(numero, nome, saldo);
     }
 
     private static void alterarCliente() {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Informe o codigo do cliente: ");
-        int cod = scan.nextInt();
+        int conta = scan.nextInt();
         scan.nextLine();
 
-        Cliente c = ClientesController.buscarPorConta(conta);
+        Conta c = ContasController.buscarPorConta(conta);
 
         if (c != null) {
-            System.out.print("Digite a nova conta do cliente: (anterior: " + c.getCodigo() + "): ");
+            System.out.print("Digite a nova conta do cliente: (anterior: " + c.getNumero() + "): ");
             int contaCliente = scan.nextInt();
             scan.nextLine();
-            c.setCodigo(contaCliente);
+            c.setNumero(contaCliente);
 
         } else {
             System.out.println("Cliente nao cadastrado!");
@@ -94,13 +102,13 @@ public class AdmView {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Digite o codigo do cliente: ");
-        int cod = scan.nextInt();
+        int conta = scan.nextInt();
         scan.nextLine();
 
-        Cliente c = ClientesController.buscarPorConta(conta);
+        Conta c = ContasController.buscarPorConta(conta);
 
         if (c != null) {
-            BancoDadosSistemaBancario.getTabelaCliente().remove(c);
+            BancoDadosSistemaBancario.getTabelaConta().remove(c);
             System.out.println("Cliente removido com sucesso");
         } else {
             System.out.println("Cliente não encontrado!!");
@@ -111,11 +119,12 @@ public class AdmView {
 
         System.out.println("********************************");
         
-        for (Cliente a : BancoDadosSistemaBancario.getTabelaCliente()) {
+        for (Conta a : BancoDadosSistemaBancario.getTabelaConta()) {
 
-            System.out.println("Codigo cliente: " + a.getCodigo());
+            System.out.println("Codigo cliente: " + a.getNumero());
             System.out.println("Nome cliente: " + a.getNome());
-            System.out.println("Cpf cliente: " + a.getCpf());
+            System.out.println("Saldo cliente" + a.getSaldo());
+            System.out.println("Extrato cliente" + a.getExtrato());
            
         }
         System.out.println("********************************");

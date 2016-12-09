@@ -6,6 +6,9 @@
 package views;
 
 import java.util.Scanner;
+import banco.BancoDadosSistemaBancario;
+import controllers.ContasController;
+import models.Conta;
 
 /**
  *
@@ -13,37 +16,35 @@ import java.util.Scanner;
  */
 public class MenuInicialView {
 
-    public class MenuInicioView {
+    Scanner scan = new Scanner(System.in);
 
-        Scanner scan = new Scanner(System.in);
+    public int Menu() {
 
-        public int Menu() {
+        System.out.println("---------- Bem vindo ao Fernaron Bank ----------");
+        System.out.println("Digite 1 para Cliente e 2 para Administrador:");
 
-            System.out.println("---------- Bem vindo ao Fernaron Bank ----------");
-            System.out.println("Digite 1 para Cliente e 2 para Administrador:");
+        int op = scan.nextInt();
+        scan.nextLine();
 
-            int op = scan.nextInt();
-            scan.nextLine();
-
-            return op;
-        }
-
-        public void exibirMenu() {
-            while (true) {
-                int op = 0;
-                do {
-                    op = Menu();
-                    switch (op) {
-                        case 1:
-                            clienteView.exibirMenuCliente();
-                            break;
-                        case 2:
-                            admView.exibirMenuAdm();
-                            break;
-                        
-                    }
-                } while (op != 3);
-            }
-        }
-
+        return op;
     }
+
+    public void exibirMenu() {
+        while (true) {
+            int op = 0;
+            do {
+                op = Menu();
+                switch (op) {
+                    case 1:
+                        clienteView.exibirMenuCliente();
+                        break;
+                    case 2:
+                        admView.exibirMenuAdm();
+                        break;
+
+                }
+            } while (op != 3);
+        }
+    }
+
+}
