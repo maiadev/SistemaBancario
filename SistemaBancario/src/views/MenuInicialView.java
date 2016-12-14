@@ -23,12 +23,21 @@ public class MenuInicialView {
         System.out.println("---------- Bem vindo ao Fernaron Bank ----------");
         System.out.println("Digite 1 para Cliente e 2 para Administrador:");
 
-        int op = scan.nextInt();
-        scan.nextLine();
+        try{
+           int op = scan.nextInt();
+           scan.nextLine();
 
-        return op;
+           return op;
+        }catch(Exception e){
+            System.out.println("Permitido apenas números");
+            scan.nextLine();
+            return 0;
+        }
+       
     }
-
+    ClienteView clienteView = new ClienteView();
+    AdmView admView = new AdmView();
+    
     public void exibirMenu() {
         while (true) {
             int op = 0;
@@ -36,7 +45,20 @@ public class MenuInicialView {
                 op = Menu();
                 switch (op) {
                     case 1:
-                        clienteView.exibirMenuCliente();
+                         try{
+                            System.out.println("INFORME SUA O NÚMERO DA SUA CONTA");
+                            int conta = scan.nextInt();
+                            scan.nextLine();
+                            Conta cc = controllers.ContasController.buscarPorConta(conta);
+                            if(cc == null){
+                                System.out.println("CONTA NÃO CADASTRADA");
+                            }else{
+                                 clienteView.exibirMenuCliente(cc);
+                            }
+                         }catch(Exception e){
+                             System.out.println("Permitido apenas números");
+                         }
+                        
                         break;
                     case 2:
                         admView.exibirMenuAdm();

@@ -1,13 +1,14 @@
 
 package models;
 import controllers.ContasController;
+import java.util.ArrayList;
 
 public class Conta {
 
     private int Numero;
     private String Nome;
     private float Saldo;
-    private int Extrato;
+    private ArrayList<String> Extrato;
     
     public int getNumero() {
         return Numero;
@@ -21,8 +22,12 @@ public class Conta {
         return Saldo;
     }
 
-    public int getExtrato() {
+    public ArrayList<String> getExtrato() {
         return Extrato;
+    }
+    
+     public void inicializarExrato() {
+        Extrato = new ArrayList<String>();
     }
 
     public void setNumero(int Numero) {
@@ -34,21 +39,11 @@ public class Conta {
     }
 
     public void setSaldo(float Saldo) {
-        
-        Conta c = new Conta();
-        
-        if (ContasController.depositar(int numero, float valor)){
-            this.Saldo = Saldo + valor;
-        }else{
-            this.Saldo = Saldo - valor;
-        }
-        
+        this.Saldo = Saldo + this.Saldo;
+    }
+    
+    public void debitaSaldo(float valor) {
+        this.Saldo =  this.Saldo - valor;
     }
 
-    public void setExtrato(int Extrato) {
-        this.Extrato = Extrato;
-    }
-    
-    
-    
 }

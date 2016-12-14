@@ -7,6 +7,9 @@ package controllers;
 
 import models.Conta;
 import banco.BancoDadosSistemaBancario;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -29,10 +32,11 @@ public class ContasController {
         BancoDadosSistemaBancario.getTabelaConta().add(c);
     }
 
-    public static Conta buscarPorConta(int conta) {
-
+    public static Conta buscarPorConta(int num) {
+            System.out.println(num + " aaa");
         for (Conta c : BancoDadosSistemaBancario.getTabelaConta()) {
-            if (c.getNumero() == conta) {
+            System.out.println(c.getNumero());
+            if (c.getNumero() == num) {
                 return c;
             }
         }
@@ -40,11 +44,33 @@ public class ContasController {
         return null;
     }
 
-    public static void depositar(int numero, float valor) {
-
-        Conta c = ContasController.buscarPorConta(numero);
-        
-        
-
+    public static void depositar(Conta c, float valor) {
+        c.setSaldo(valor);
+        inserirNoExtrato(c,getCurrentTime() + " | DEPÓSITO R$ " + valor);
     }
+    
+    public static void retirar(Conta c, float valor) {
+        c.debitaSaldo(valor);
+                
+        inserirNoExtrato(c,getCurrentTime() + " | RETIRADA R$ -" + valor);
+    }
+        
+    public static ArrayList<String> obterExtrato(Conta conta) throws Exception {
+        return conta.getExtrato();
+    }
+    
+    private static void inserirNoExtrato(Conta c,String msg){
+        if(c.getExtrato() == null){
+            c.inicializarExrato();
+        }
+        
+        c.getExtrato().add(msg);
+    } 
+    
+    public static String getCurrentTime() {
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Date now = new Date();
+        String strDate = sdfDate.format(now);
+    return strDate;
+}
 }

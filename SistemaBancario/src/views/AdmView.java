@@ -20,22 +20,30 @@ public class AdmView {
     Scanner scan = new Scanner(System.in);
 
     public int Menu() {
-
-        int op = scan.nextInt();
-        scan.nextLine();
-
+        System.out.println("Informe a opção desejada: ");
+        
         System.out.println("1 - Cadastrar Cliente;");
         System.out.println("2 - Alterar Cliente;");
         System.out.println("3 - Excluir Cliente;");
         System.out.println("4 - Exibir Clientes;");
         System.out.println("5 - Sair;");
-        System.out.print("Informe a opção desejada: ");
+        
+        try{
+          int op = scan.nextInt();
+          scan.nextLine();
 
-        return op;
+          return op;
+        }catch(Exception e){
+            System.out.println("Permitido apenas números");
+             scan.nextLine();
+            return 0;
+        }
+       
     }
 
     public void exibirMenuAdm() {
-        int op;
+        
+        int op = 0;
         do {
             op = Menu();
 
@@ -52,6 +60,9 @@ public class AdmView {
                 case 4:
                     exibirClientes();
                     break;
+                case 5:
+                    sistemaBancario.SistemaBancario.main(null);
+                    break;
                 default:
                     System.out.println("Opção digitada é inválida");
                     break;
@@ -61,25 +72,29 @@ public class AdmView {
 
     private void cadastrarCliente() {
 
-        System.out.print("Digite a conta do cliente: ");
-        int conta = scan.nextInt();
-        scan.nextLine();
+        try{
+            System.out.print("Digite a conta do cliente: ");
+            int conta = scan.nextInt();
+            scan.nextLine();
 
-        System.out.print("Digite o numero da conta: ");
-        int numero = scan.nextInt();
-        scan.nextLine();
+            System.out.print("Digite o numero da conta: ");
+            int numero = scan.nextInt();
+            scan.nextLine();
 
-        System.out.print("Digite o nome do cliente: ");
-        String nome = scan.nextLine();
-        
-        System.out.println("DIgite o saldo da conta: ");
-        float saldo = scan.nextFloat();
+            System.out.print("Digite o nome do cliente: ");
+            String nome = scan.nextLine();
 
-        ContasController.adicionarConta(numero, nome, saldo);
+            System.out.print("DIgite o saldo da conta: ");
+            float saldo = scan.nextFloat();
+
+            ContasController.adicionarConta(numero, nome, saldo);
+        }catch(Exception e){
+            System.out.println("Informação inválida");
+        }
     }
 
     private static void alterarCliente() {
-
+    try{
         Scanner scan = new Scanner(System.in);
         System.out.print("Informe o codigo do cliente: ");
         int conta = scan.nextInt();
@@ -96,38 +111,43 @@ public class AdmView {
         } else {
             System.out.println("Cliente nao cadastrado!");
         }
+        }catch(Exception e){
+            System.out.println("Informação inválida");
+        }
+        
     }
 
     private static void excluirCliente() {
+        try{
+           Scanner scan = new Scanner(System.in);
+           System.out.print("Digite o codigo do cliente: ");
+           int conta = scan.nextInt();
+           scan.nextLine();
 
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Digite o codigo do cliente: ");
-        int conta = scan.nextInt();
-        scan.nextLine();
+           Conta c = ContasController.buscarPorConta(conta);
 
-        Conta c = ContasController.buscarPorConta(conta);
-
-        if (c != null) {
-            BancoDadosSistemaBancario.getTabelaConta().remove(c);
-            System.out.println("Cliente removido com sucesso");
-        } else {
-            System.out.println("Cliente não encontrado!!");
+           if (c != null) {
+               BancoDadosSistemaBancario.getTabelaConta().remove(c);
+               System.out.println("Cliente removido com sucesso");
+           } else {
+               System.out.println("Cliente não encontrado!!");
+           }
+        }catch(Exception e){
+            System.out.println("Informação inválida");
         }
+       
     }
     
     private void exibirClientes() {
-
-        System.out.println("********************************");
         
         for (Conta a : BancoDadosSistemaBancario.getTabelaConta()) {
-
-            System.out.println("Codigo cliente: " + a.getNumero());
-            System.out.println("Nome cliente: " + a.getNome());
-            System.out.println("Saldo cliente" + a.getSaldo());
-            System.out.println("Extrato cliente" + a.getExtrato());
-           
+            System.out.println("********************************");
+            System.out.println("    Codigo cliente: " + a.getNumero());
+            System.out.println("    Nome cliente: " + a.getNome());
+            System.out.println("    Saldo cliente" + a.getSaldo());
+            System.out.println("********************************");
         }
-        System.out.println("********************************");
+        
     }
 
 }

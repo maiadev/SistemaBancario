@@ -5,7 +5,7 @@ import java.util.List;
 import models.Conta;
 
 
-public class BancoDadosSistemaBancario {
+public  class BancoDadosSistemaBancario {
 
     private static List<Conta> tabelaConta;
     //private static List<Deposito> tabelaDeposito;
@@ -14,7 +14,10 @@ public class BancoDadosSistemaBancario {
         return tabelaConta;
     }
 
-  //  public static List<Deposito> getTabelaDeposito() {
-    //    return tabelaDeposito;
-    
+    public static void inicializarBancoConta(){
+        if(tabelaConta == null){
+            tabelaConta =  new ArrayList<Conta>();
+        }
+    }
 }
+
