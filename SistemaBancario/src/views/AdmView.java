@@ -73,7 +73,7 @@ public class AdmView {
     private void cadastrarCliente() {
 
         try{
-            System.out.print("Digite a conta do cliente: ");
+            System.out.print("Digite o codigo do cliente: ");
             int conta = scan.nextInt();
             scan.nextLine();
 
@@ -144,7 +144,7 @@ public class AdmView {
             System.out.println("********************************");
             System.out.println("    Codigo cliente: " + a.getNumero());
             System.out.println("    Nome cliente: " + a.getNome());
-            System.out.println("    Saldo cliente" + a.getSaldo());
+            System.out.println("    Saldo cliente: " + a.getSaldo());
             System.out.println("********************************");
         }
         
